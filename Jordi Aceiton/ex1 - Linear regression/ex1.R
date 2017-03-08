@@ -20,11 +20,10 @@ source("gradientDescent.R")
 ##
 ## *****************************************************************************
 
-cat("***** Exercice 1A - Part 1: Basic Function *****\n") 
-cat("\nPress ENTER to start...")
-readline()
+cat("***** Exercice 1A - Part 1: Basic Function *****\n\n") 
+readline("Press ENTER to start...")
 
-cat("Running warmUpExercise ...  \n")
+cat("\nRunning warmUpExercise ...  \n")
 
 n <- 5
 identityMatrix <- warmUpExercise(n)
@@ -32,8 +31,8 @@ identityMatrix <- warmUpExercise(n)
 cat(paste0("\n", n, "x", n, " Identity matrix"), "\n\n")
 print(identityMatrix)
 
-cat("\nPress ENTER to continue...")
-readline()
+cat("\n")
+readline("Press ENTER to continue...")
 
 rm(n)
 cat("\014")   # Clear console.
@@ -49,11 +48,10 @@ cat("\014")   # Clear console.
 ##
 ## *****************************************************************************
 
-cat("***** Exercice 1A - Part 2: Plotting *****\n") 
-cat("\nPress ENTER to start...")
-readline()
+cat("***** Exercice 1A - Part 2: Plotting *****\n\n") 
+readline("Press ENTER to start...")
 
-cat("Plotting Data ...\n")
+cat("\nPlotting Data ...\n")
 
 # Training set.
 data1 <- read.csv("ex1data1.txt", header=FALSE, col.names = c("X","y"))
@@ -63,8 +61,8 @@ y <- data1$y
 # Plot the data.
 plotData(X, y)
 
-cat("\nPress ENTER to continue...")
-readline()
+cat("\n")
+readline("Press ENTER to continue...")
 dev.off()
 
 cat("\014")   # Clear console.
@@ -77,11 +75,10 @@ cat("\014")   # Clear console.
 ##
 ## =====================================================================================
 
-cat("***** Exercice 1A - Part 3: Gradient descent *****\n") 
-cat("\nPress ENTER to start...")
-readline()
+cat("***** Exercice 1A - Part 3: Gradient descent *****\n\n") 
+readline("Press ENTER to start...")
 
-cat("Running Gradient Descent ... \n")
+cat("\nRunning Gradient Descent ... \n")
 
 # Add the x0 = 1 column to X.
 X <- matrix(1, nrow=nrow(data1), ncol=2)
@@ -118,8 +115,8 @@ predict2 <- sum(c(1,7)*theta) * 10000
 cat("For population = 35,000, we predict a profit of ", predict1,"\n")
 cat("For population = 70,000, we predict a profit of ", predict2,"\n")
 
-cat("\nPress ENTER to continue...")
-readline()
+cat("\n")
+readline("Press ENTER to continue...")
 dev.off()
 
 cat("\014")   # Clear console.
@@ -132,11 +129,10 @@ cat("\014")   # Clear console.
 ##
 ## =============================================================================
 
-cat("***** Exercice 1A - Part 4: Visualizing J(theta_0, theta_1) *****\n") 
-cat("\nPress ENTER to start...")
-readline()
+cat("***** Exercice 1A - Part 4: Visualizing J(theta_0, theta_1) *****\n\n") 
+readline("Press ENTER to start...")
 
-cat("Visualizing J(theta_0, theta_1) surface plot...\n")
+cat("\nVisualizing J(theta_0, theta_1) surface plot...\n")
 
 # Grid over which we will calculate J
 theta0_val <- seq(-10, 10, length.out=100)
@@ -188,13 +184,13 @@ persp(x, y, z,
       zlab = "",
       zlim = range(0,800,200))
 
-cat("\nPress ENTER to continue...")
-readline()
+cat("\n")
+readline("Press ENTER to continue...")
 dev.off()
 
 ## Contour plot
 
-cat("Visualizing J(theta_0, theta_1) contour plot...\n")
+cat("\nVisualizing J(theta_0, theta_1) contour plot...\n")
 cat("The red cross (theta0,theta1) stands for the optimal J obtained by gradient descent.\n")
 
 x <- theta0_val
@@ -206,7 +202,7 @@ contour(x , y, z,
         levels = lev)
 points(theta[1], theta[2], col = "red", pch = 4)
 
-cat("\nPress ENTER to finish.")
-readline()
+cat("\n")
+readline("Press ENTER to finish.")
 dev.off()
 

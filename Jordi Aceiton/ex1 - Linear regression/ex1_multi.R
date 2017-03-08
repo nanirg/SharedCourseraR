@@ -18,11 +18,10 @@ source("normalEqn.R")
 ##
 ## =============================================================================
 
-cat("***** Exercice 1B - Part 1: Feature Normalization *****\n") 
-cat("\nPress ENTER to start...")
-readline()
+cat("***** Exercice 1B - Part 1: Feature Normalization *****\n\n") 
+readline("Press ENTER to start...")
 
-cat("Loading data ...\n\n")
+cat("\nLoading data ...\n\n")
 
 ## Load Data
 data2 <- read.csv("ex1data2.txt", header = FALSE, 
@@ -49,8 +48,9 @@ mu <- featureNormalize(X)[["Mu"]]
 sigma <- featureNormalize(X)[["Sigma"]]
 
 cat(" done!\n") 
-cat("\nPress ENTER to continue...")
-readline()
+cat("\n")
+readline("Press ENTER to continue...")
+
 
 cat("\014")   # Clear console.
 
@@ -61,11 +61,10 @@ cat("\014")   # Clear console.
 ##
 ## =============================================================================
 
-cat("***** Exercice 1B - Part 2: Gradient Descent *****\n") 
-cat("\nPress ENTER to start...")
-readline()
+cat("***** Exercice 1B - Part 2: Gradient Descent *****\n\n") 
+readline("Press ENTER to start...")
 
-cat("Running gradient descent ...\n\n")
+cat("\nRunning gradient descent ...\n\n")
 
 ## Choose some alpha value
 alpha <- 0.1            
@@ -100,10 +99,10 @@ x_toPredict_norm[1] <- 1
 price <- sum(theta * x_toPredict_norm)
 
 cat("\n\nPredicted price of a 1650 sq-ft, 3 br house (using gradient descent):\n")
-cat("$ ", price)
+cat("$ ", price, "\n")
 
-cat("\n\nPress ENTER to continue...")
-readline()
+cat("\n")
+readline("Press ENTER to continue...")
 
 cat("\014")   # Clear console.
 
@@ -114,11 +113,10 @@ cat("\014")   # Clear console.
 ##
 ## =============================================================================
 
-cat("***** Exercice 1B - Part 3: Normal equations *****\n") 
-cat("\nPress ENTER to start...")
-readline()
+cat("***** Exercice 1B - Part 3: Normal equations *****\n\n") 
+readline("Press ENTER to start...")
 
-cat("Solving with normal equations...\n")
+cat("\nSolving with normal equations...\n")
 
 ## Calculate the parameters from the normal equation
 theta_normEq <- normalEqn(X,y)
@@ -134,8 +132,8 @@ x_toPredict <- c(1, 1650, 3)
 price <- sum(theta_normEq*x_toPredict)
 
 cat("\n\nPredicted price of a 1650 sq-ft, 3 br house (using normal equations):\n")
-cat("$ ", price)
+cat("$ ", price, "\n")
 
-cat("\nPress ENTER to finish.")
-readline()
+cat("\n")
+readline("Press ENTER to finish.")
 dev.off()
