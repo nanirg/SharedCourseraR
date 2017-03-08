@@ -25,9 +25,8 @@ data <- read.csv("ex2data1.txt", header = FALSE,
 ##
 ## =============================================================================
 
-cat("***** EXERCISE 2A - PART 1: Plot data *****\n") 
-cat("\nPress ENTER to start...")
-readline()
+cat("***** EXERCISE 2A - PART 1: Plot data *****\n\n") 
+readline("Press ENTER to start...")
 
 ## Setup the data matrix appropriately, and add ones for the intercept term.
 X <- data.frame(x0=1, data[ ,1:ncol(data)-1])
@@ -35,7 +34,7 @@ X <- as.matrix(X)
 y <- data[,ncol(data)]
 
 ## Plot data X, y
-cat("Plotting data with (+) indicating (y = 1) examples and (o) indicating", 
+cat("\nPlotting data with (+) indicating (y = 1) examples and (o) indicating", 
     "(y = 0) examples.\n")
 
 xy_labels <- c("Exam 1 score","Exam 2 score") 
@@ -43,8 +42,8 @@ legend_labels <- c("Admitted","not admitted")
 
 plotData(X, y, xy_labels, legend_labels)
 
-cat("\nPress ENTER to continue...")
-readline()
+cat("\n")
+readline("Press ENTER to continue...")
 
 cat("\014")   # Clear console.
 dev.off()
@@ -56,9 +55,8 @@ dev.off()
 ##
 ## =============================================================================
 
-cat("***** EXERCISE 2A - PART 2: Compute Cost and Gradient *****\n") 
-cat("\nPress ENTER to start...")
-readline()
+cat("***** EXERCISE 2A - PART 2: Compute Cost and Gradient *****\n\n") 
+readline("Press ENTER to start...")
 
 ## Initialize fitting parameters
 initial_theta <- rep(0, ncol(X))
@@ -67,7 +65,7 @@ initial_theta <- rep(0, ncol(X))
 cost <- costFunction(initial_theta, X, y)[["J"]]
 grad <- costFunction(initial_theta, X, y)[["Gradient"]]
 
-cat("Cost at initial theta (zeros): ", cost)
+cat("\nCost at initial theta (zeros): ", cost)
 cat("\nExpected cost (approx): 0.693\n")
 cat("Gradient at initial theta (zeros): ", grad, "\n")
 cat("Expected gradients (approx): -0.1000 -12.0092 -11.2628\n")
@@ -82,8 +80,8 @@ cat("\nExpected cost (approx): 0.218\n")
 cat("Gradient at test theta: ", grad, "\n")
 cat("Expected gradients (approx): 0.043 2.566 2.647\n")
 
-cat("\nPress ENTER to continue...")
-readline()
+cat("\n")
+readline("Press ENTER to continue...")
 
 cat("\014")   # Clear console.
 
@@ -94,9 +92,8 @@ cat("\014")   # Clear console.
 ##                      
 ## =============================================================================
 
-cat("***** EXERCISE 2A - PART 3: Optimizing using fminunc *****\n") 
-cat("\nPress ENTER to start...")
-readline()
+cat("***** EXERCISE 2A - PART 3: Optimizing using fminunc *****\n\n") 
+readline("Press ENTER to start...")
 
 ## What is the R equivalent of Matlab's fminunc function?
 ## Take a look at the optim function. It can do unconstrained minimization using
@@ -122,7 +119,7 @@ optimRes <- optim(par = initial_theta,
 theta <- optimRes$par
 cost <- optimRes$value
 
-cat("Cost at theta found by fminunc: ", cost, "\n")
+cat("\nCost at theta found by fminunc: ", cost, "\n")
 cat("Expected cost (approx): 0.203\n")
 cat("theta: ", theta, "\n")
 cat("Expected theta (approx): -25.161  0.206  0.201\n")
@@ -132,9 +129,8 @@ plotDecisionBoundary(theta, X, y,
                      axLables = c("Exam 1 score","Exam 2 score"), 
                      legLabels = c('Admitted', 'Not admitted'))
 
-
-cat("\nPress ENTER to continue...")
-readline()
+cat("\n")
+readline("Press ENTER to continue...")
 
 cat("\014")   # Clear console.
 
@@ -150,16 +146,15 @@ cat("\014")   # Clear console.
 ##                      
 ## =============================================================================
 
-cat("***** EXERCISE 2A - PART 4: Predict and Accuracies *****\n") 
-cat("\nPress ENTER to start...")
-readline()
+cat("***** EXERCISE 2A - PART 4: Predict and Accuracies *****\n\n") 
+readline("Press ENTER to start...")
 
 sigmoid <- function(z) { 1/(1+exp(-z)) }
 x_pred <- c(1, 45, 85)
 z <- sum(theta * x_pred)
 h <- sigmoid(z)
 
-cat("For a student with scores 45 and 85,\nwe predict an admission " ,
+cat("\nFor a student with scores 45 and 85,\nwe predict an admission " ,
     "probability of: ", h, "\n");
 cat("Expected value: 0.775 +/- 0.002\n");
 
@@ -171,7 +166,6 @@ cat("\nTrain Accuracy: ", mean((pred == y)) * 100, "%\n")
 cat('Expected accuracy (approx): 89.0\n')
 
 
-
-cat("\nPress ENTER to finish.")
-readline()
+cat("\n")
+readline("Press ENTER to finish.")
 dev.off()

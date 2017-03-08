@@ -36,12 +36,11 @@ y <- data[,ncol(data)]
 ##
 ## =============================================================================
 
-cat("***** EXERCISE 2B - PART 1: Regularized Logistic Regression *****\n") 
-cat("\nPress ENTER to start...")
-readline()
+cat("***** EXERCISE 2B - PART 1: Regularized Logistic Regression *****\n\n") 
+readline("Press ENTER to start...")
 
 ## Visualise data
-cat("Plotting the data...\n\n")
+cat("\nPlotting the data...\n\n")
 xy_labels <- c("Microchip Test 1","Microchip Test 2") 
 legend_labels <- c("y = 1","y = 0")
 
@@ -72,8 +71,8 @@ cat(grad[1:5], "\n\n");
 cat("Expected gradients (approx) - first five values only:\n")
 cat(" 0.0085  0.0188  0.0001  0.0503  0.0115\n")
 
-cat("\nPress ENTER to continue...")
-readline()
+cat("\n")
+readline("Press ENTER to continue...")
 
 cat("\014")   # Clear console.
 
@@ -83,9 +82,8 @@ cat("\014")   # Clear console.
 ##                      
 ## =============================================================================
 
-cat("***** EXERCISE 2B - PART 2: Regularization and Accuracies *****\n") 
-cat("\nPress ENTER to start...")
-readline()
+cat("***** EXERCISE 2B - PART 2: Regularization and Accuracies *****\n\n") 
+readline("Press ENTER to start...")
 
 ## Initialize fitting parameters
 initial_theta = rep(0, ncol(X))
@@ -110,7 +108,7 @@ lambda = 1
 ## Equivalent fminunc (optimitzation solver that finds de minimum of an
 ## unconstrained function.) in R using optim().
 
-cat("Running optimitzation and plotting decision boundary...\n")
+cat("\nRunning optimitzation and plotting decision boundary...\n")
 
 optimRes <- optim(par = initial_theta,
                   fn = JcostFunctionReg, 
@@ -137,6 +135,6 @@ cat("\nTrain Accuracy: ", mean((pred == y)) * 100, "%\n")
 cat('Expected accuracy (approx): 83.1 when lambda = 1\n')
 
 
-cat("\nPress ENTER to finish.")
-readline()
+cat("\n")
+readline("Press ENTER to finish.")
 dev.off()
