@@ -24,18 +24,26 @@ num_labels <- 10          # 10 labels, from 1 to 10
                           # (note that we have mapped "0" to label 10)
 
 ## load the data with R.matlab package to read .mat files
-suppressWarnings(
+suppressMessages(suppressWarnings(
         
         if (require(R.matlab) == FALSE) {
                 stop("\n\n Install R.matlab package To run this script")
-        } else {
-                cat("\014")  # else Clear console
-        }      
-)
+        }     
+))
 
 cat("***** EXERCISE 3B - PART 1: Loading and visualizing data *****\n\n") 
 readline("Press ENTER to start...")
 
+## TRAINING SET:
+#
+# data contains training set {X,y}
+#
+#   X (mxn matrix): 
+#       m = number of handwritten images 
+#       n = 20x20 pixels with greyscale values: x1,... x400 features.
+#   y (m vector) containing the labels (1,2,...,10) of the handwritten images. 
+#
+##
 data <- readMat("ex3data1.mat")
 X <- data$X
 y <- data$y
@@ -52,7 +60,6 @@ displayData(rand_X_selection)
 
 cat("\n")
 readline("Press ENTER to continue...")
-
 cat("\014")   # Clear console.
 
 ## ==== Part 2: Loading Parameters ===============================================

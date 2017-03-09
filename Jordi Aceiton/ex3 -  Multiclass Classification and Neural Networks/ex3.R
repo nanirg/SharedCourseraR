@@ -21,14 +21,12 @@ source("predictOneVsAll.R")
 ## =============================================================================
 
 ## load the data with R.matlab package to read .mat files
-suppressWarnings(
+suppressMessages(suppressWarnings(
         
         if (require(R.matlab) == FALSE) {
                 stop("\n\n Install R.matlab package To run this script")
-        } else {
-                cat("\014")  # else Clear console
-        }      
-)
+        }     
+))
 
 cat("***** EXERCISE 3A - PART 1: Loading and visualizing data *****\n\n") 
 readline("Press ENTER to start...")
