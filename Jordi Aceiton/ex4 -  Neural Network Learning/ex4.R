@@ -28,7 +28,7 @@ source("predict.R")
 cat("***** EXERCISE 4 - PART 1: Loading and Visualizing Data *****\n\n") 
 readline("Press ENTER to start...")
 
-## load the data with R.matlab package to read .mat files
+## load the data with R.matlab package. readMat() allows to read .mat files.
 suppressMessages(suppressWarnings(
         
         if (require(R.matlab) == FALSE) {
